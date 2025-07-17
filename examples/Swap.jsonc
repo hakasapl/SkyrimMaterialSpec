@@ -4,10 +4,21 @@
     },
     "swaps": [
         {
-            "material": "path/to/material_to_apply.json", // Default material for this item
-            "materialswaps": [ // List of additional materials allowed to be swapped in. Length >0 means material swapper will have UI available (union of "material" and "materialswaps" will be available in the UI)
-                "path/to/material2.json",
-                "path/to/material3.json"
+            "materials": [ // List of additional materials allowed to be swapped in. Length >0 means material swapper will have UI available (union of "material" and "materialswaps" will be available in the UI)
+                {
+                    "name": "Example Name",
+                    "path": "textures/path/to/material.json",
+                    "modifyName": false,
+                    "isHidden": false,
+                    "default": true // If true, the default material will be swapped by default. If lenfth of materials is 1, the default will be used automatically
+                },
+                {
+                    "name": "Example Name 2",
+                    "path": "textures/path/to/another_material.json",
+                    "modifyName": true, // If true, the name of the material will be modified to match the name of the material in the file
+                    "isHidden": false,
+                    "default": false // This material will not be used by default
+                }
             ],
             "matching": [
                 {
