@@ -11,7 +11,7 @@
             ],
             "matching": [
                 {
-                    "property": "slotdiffuse",
+                    "property": "slot0",
                     "value": "textures/path/to/diffuse.dds" // Full path to texture file from data, wildcards NOT supported
                 },
                 {
