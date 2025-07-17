@@ -1,0 +1,55 @@
+{
+    "version": 1, // Version of the parallax json format, this will be iterated on any breaking change
+    "inherit": "path/to/other/material.json", // Inherit from other material json. All fields will be merged, with this file taking precedence.
+    "material": "Parallax", // Material type, this is an example for Parallax
+    "textures": {
+        "diffuse": "textures/path/to/diffuse.dds", // Required
+        "normal": "textures/path/to/normal_n.dds", // Required
+        "parallax": "textures/path/to/parallax_p.dds" // Required
+    },
+    "general": { // General properties for the material. These properties will be applied if exists, otherwise the existing value will be kept
+        "uv_scale": [
+            1.0,
+            1.0
+        ],
+        "uv_offset": [
+            0.0,
+            0.0
+        ],
+        "tile": [
+            true,
+            true
+        ],
+        "alpha": 1.0,
+        "blending": {
+            "enabled": false, // Enable alpha blending
+            "testing": false, // enable alpha testing
+            "nosorter": false,
+            "srcmode": "srcalpha",
+            "dstmode": "invsrcalpha",
+            "testmode": "greater",
+            "threshold": 128
+        },
+        "zbuffer_write": true // Enable zbuffer write flag for the shader property
+    },
+    "properties": { // Properties for the material. These properties will either be applied or a default value will be applied if it does not exist (material is always overridden)
+        "emissive": {
+            "enabled": false,
+            "color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "multiplier": 1.0
+        },
+        "specular": {
+            "enabled": false,
+            "color": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "strength": 1.0
+        }
+    }
+}

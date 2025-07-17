@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "defaults": { // put any field from swaps schema here and it will apply to everything in the list
+    },
+    "swaps": [
+        {
+            "material": "path/to/material_to_apply.json", // Default material for this item
+            "materialswaps": [ // List of additional materials allowed to be swapped in. Length >0 means material swapper will have UI available (union of "material" and "materialswaps" will be available in the UI)
+                "path/to/material2.json",
+                "path/to/material3.json"
+            ],
+            "matching": [
+                {
+                    "type": "slot",
+                    "slot": 0,
+                    "path": "textures/path/to/diffuse.dds" // Full path to texture file from data, wildcards NOT supported
+                },
+                {
+                    "type": "pluginname",
+                    "name": "PluginName.esp" // Plugin name to match
+                },
+                {
+                    "type": "formid",
+                    "formid": "000000" // FormID to match
+                },
+                {
+                    "type": "nifname",
+                    "path": "*/path/*" // Path to NIF file, wildcard supported
+                },
+                {
+                    "type": "shapename",
+                    "name": "ShapeName" // Name of the shape to match
+                },
+                {
+                    "type": "alphaproperty",
+                    "hasalpha": true // Match shapes that have alpha property
+                }
+            ],
+            "mesh_transforms": { // Theses are mesh modiciations that can be applied at the time of the swap. DO NOT USE THESE UNLESS REQUIRED BECAUSE YOU DO NOT KNOW WHAT INITIAL STATE THE USER'S MESH WILL BE IN. Fields here are not applied or set default unless specified
+                "vertex_colors": true, // Enable/disable vertex colors
+                "vertex_color_bright_mult": "1.0", // Multiplier for vertex colors brightness (V part of HSV)
+                "vertex_color_sat_mult": "1.0", // Multiplier for vertex colors saturation (S part of HSV)
+                "delete_shape": false // Delete the shape from the mesh (material is not required to be set for this case)
+            }
+        }
+    ]
+}

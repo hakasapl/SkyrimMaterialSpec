@@ -1,0 +1,85 @@
+{
+    "version": 1, // Version of the pbr material json format, this will be iterated on any breaking change
+    "inherit": "path/to/other/material.json", // Inherit from other material json. All fields will be merged, with this file taking precedence.
+    "material": "PBR", // Material type, this is an example for PBR Material
+    "textures": {
+        "diffuse": "textures/path/to/diffuse.dds", // Required
+        "normal": "textures/path/to/normal_n.dds", // Required
+        "glow": "textures/path/to/glowmap_g.dds", // Optional
+        "parallax": "textures/path/to/parallax_p.dds", // Optional
+        "rmaos": "textures/path/to/rmaos_rmaos.dds", // Required
+        "coatdiffuse": "textures/path/to/coatdiffuse_s.dds", // Optional, mutually exclusive with "subsurface"
+        "coatnormal": "textures/path/to/coatnormal_cnr.dds", // Optional, mutually exclusive with "fuzz"
+        "fuzz": "textures/path/to/fuzz_f.dds", // Optional, mutually exclusive with "coatnormal"
+        "subsurface": "textures/path/to/subsurface_s.dds" // Optional, mutually exclusive with "coatdiffuse"
+    },
+    "general": { // General properties for the material. These properties will be applied if exists, otherwise the existing value will be kept
+        "uv_scale": [
+            1.0,
+            1.0
+        ],
+        "uv_offset": [
+            0.0,
+            0.0
+        ],
+        "tile": [
+            true,
+            true
+        ],
+        "alpha": 1.0,
+        "blending": {
+            "enabled": false, // Enable alpha blending
+            "testing": false, // enable alpha testing
+            "nosorter": false,
+            "srcmode": "srcalpha",
+            "dstmode": "invsrcalpha",
+            "testmode": "greater",
+            "threshold": 128
+        },
+        "zbuffer_write": true // Enable zbuffer write flag for the shader property
+    },
+    "properties": { // Properties for the material. These properties will either be applied or a default value will be applied if it does not exist (material is always overridden)
+        "emissive": {
+            "external_emittance": false,
+            "color": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "multiplier": 1.0
+        },
+        "specular_strength": 1.0,
+        "displacement_scale": 1.0, // Requires parallax texture to be set
+        "subsurface": { // Requires "subsurface" texture to be set
+            "color": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "opacity": 1.0
+        },
+        "multilayer": {
+            "coat_strength": 0.0,
+            "coat_roughness": 0.0,
+            "coat_specular_level": 0.0,
+            "coat_parallax": false // If true, use the parallax texture defined for inner layer instead of surface
+        },
+        "fuzz": {
+            "enabled": false, // This is forced true if fuzz texture is defined, but is available to be manually set for fuzz without texture
+            "color": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "weight": 1.0
+        },
+        "glint": {
+            "enabled": false, // Enables PBR glint shader
+            "screen_space_scale": 0.0,
+            "log_microfacet_density": 0.0,
+            "microfacet_roughness": 0.0,
+            "density_randomization": 0.0
+        },
+        "hair": false // Enables PBR hair shader
+    }
+}
