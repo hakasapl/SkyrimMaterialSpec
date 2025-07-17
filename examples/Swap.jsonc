@@ -11,29 +11,28 @@
             ],
             "matching": [
                 {
-                    "type": "slot",
-                    "slot": 0,
-                    "path": "textures/path/to/diffuse.dds" // Full path to texture file from data, wildcards NOT supported
+                    "property": "slot",
+                    "value": "textures/path/to/diffuse.dds" // Full path to texture file from data, wildcards NOT supported
                 },
                 {
-                    "type": "pluginname",
-                    "name": "PluginName.esp" // Plugin name to match
+                    "property": "pluginname",
+                    "value": "PluginName.esp" // Plugin name to match
                 },
                 {
-                    "type": "formid",
-                    "formid": "000000" // FormID to match
+                    "property": "formid",
+                    "value": "000000" // FormID to match
                 },
                 {
-                    "type": "nifname",
-                    "path": "*/path/*" // Path to NIF file, wildcard supported
+                    "property": "nifname",
+                    "value": "*/path/*" // Path to NIF file, wildcard supported
                 },
                 {
-                    "type": "shapename",
-                    "name": "ShapeName" // Name of the shape to match
+                    "property": "shapename",
+                    "value": "ShapeName" // Name of the shape to match
                 },
                 {
-                    "type": "alphaproperty",
-                    "hasalpha": true // Match shapes that have alpha property
+                    "property": "alphaproperty",
+                    "value": "true" // Match shapes that have alpha property
                 }
             ],
             "mesh_transforms": { // Theses are mesh modiciations that can be applied at the time of the swap. DO NOT USE THESE UNLESS REQUIRED BECAUSE YOU DO NOT KNOW WHAT INITIAL STATE THE USER'S MESH WILL BE IN. Fields here are not applied or set default unless specified
