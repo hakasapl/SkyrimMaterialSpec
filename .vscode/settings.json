@@ -1,0 +1,10 @@
+{
+    "cmake.installPrefix": "${workspaceFolder}/install",
+    "cmake.exportCompileCommandsFile": true,
+    "cmake.copyCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "cmake.preferredGenerators": [
+        "Ninja"
+    ],
+    "cmake.buildDirectory": "${workspaceFolder}/build/${buildKit}/${buildType}",
+    "editor.formatOnSave": true
+}
